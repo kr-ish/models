@@ -209,12 +209,8 @@ def cifar10_model_fn(features, labels, mode, params):
                                          multi_gpu=params['multi_gpu'])
 
 
-def main(argv, use_sys_argv=True):
-  # If a "-h" flag is passed to tf.app.run, it will intercept it and try to
-  # produce it's own help message (and then terminate). As a result we do not
-  # pass the full argv through tf.app.run().
-  if use_sys_argv:
-    argv = sys.argv
+def main(argv=None):
+  argv = sys.argv if argv is None else argv
 
   parser = resnet_run_loop.ResnetArgParser()
   # Set defaults that are reasonable for this model.
@@ -233,4 +229,4 @@ def main(argv, use_sys_argv=True):
 
 if __name__ == '__main__':
   tf.logging.set_verbosity(tf.logging.INFO)
-  tf.app.run(argv=sys.argv[:1])
+  main()

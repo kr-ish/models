@@ -48,7 +48,7 @@ def run_synthetic(main, tmp_root, extra_flags=None):
           "--max_train_steps", "1"] + extra_flags
 
   try:
-    main(args, use_sys_argv=False)
+    main(args)
   finally:
     if os.path.exists(model_dir):
       shutil.rmtree(model_dir)
