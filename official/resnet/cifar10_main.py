@@ -209,9 +209,7 @@ def cifar10_model_fn(features, labels, mode, params):
                                          multi_gpu=params['multi_gpu'])
 
 
-def main(argv=None):
-  argv = sys.argv if argv is None else argv
-
+def main(argv):
   parser = resnet_run_loop.ResnetArgParser()
   # Set defaults that are reasonable for this model.
   parser.set_defaults(data_dir='/tmp/cifar10_data',
@@ -229,4 +227,4 @@ def main(argv=None):
 
 if __name__ == '__main__':
   tf.logging.set_verbosity(tf.logging.INFO)
-  main()
+  main(argv=sys.argv)

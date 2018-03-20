@@ -281,9 +281,7 @@ def imagenet_model_fn(features, labels, mode, params):
                                          multi_gpu=params['multi_gpu'])
 
 
-def main(argv=None):
-  argv = sys.argv if argv is None else argv
-
+def main(argv):
   parser = resnet_run_loop.ResnetArgParser(
       resnet_size_choices=[18, 34, 50, 101, 152, 200])
 
@@ -299,4 +297,4 @@ def main(argv=None):
 
 if __name__ == '__main__':
   tf.logging.set_verbosity(tf.logging.INFO)
-  main()
+  main(argv=sys.argv)
