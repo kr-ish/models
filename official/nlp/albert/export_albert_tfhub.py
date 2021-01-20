@@ -13,11 +13,8 @@
 # limitations under the License.
 # ==============================================================================
 """A script to export the ALBERT core model as a TF-Hub SavedModel."""
-from __future__ import absolute_import
-from __future__ import division
-# from __future__ import google_type_annotations
-from __future__ import print_function
 
+# Import libraries
 from absl import app
 from absl import flags
 import tensorflow as tf
@@ -78,7 +75,6 @@ def export_albert_tfhub(albert_config: configs.AlbertConfig,
 
 
 def main(_):
-  assert tf.version.VERSION.startswith('2.')
   albert_config = configs.AlbertConfig.from_json_file(
       FLAGS.albert_config_file)
   export_albert_tfhub(albert_config, FLAGS.model_checkpoint_path,

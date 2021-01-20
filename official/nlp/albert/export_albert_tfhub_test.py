@@ -13,10 +13,6 @@
 # limitations under the License.
 # ==============================================================================
 """Tests official.nlp.albert.export_albert_tfhub."""
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import os
 
 import numpy as np
@@ -86,5 +82,4 @@ class ExportAlbertTfhubTest(tf.test.TestCase):
 
 
 if __name__ == "__main__":
-  assert tf.version.VERSION.startswith('2.')
   tf.test.main()

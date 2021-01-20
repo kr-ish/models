@@ -15,13 +15,22 @@
 """Factory to build detection model."""
 
 
+from official.vision.detection.modeling import maskrcnn_model
+from official.vision.detection.modeling import olnmask_model
 from official.vision.detection.modeling import retinanet_model
+from official.vision.detection.modeling import shapemask_model
 
 
 def model_generator(params):
   """Model function generator."""
   if params.type == 'retinanet':
     model_fn = retinanet_model.RetinanetModel(params)
+  elif params.type == 'mask_rcnn':
+    model_fn = maskrcnn_model.MaskrcnnModel(params)
+  elif params.type == 'olnmask':
+    model_fn = olnmask_model.OlnMaskModel(params)
+  elif params.type == 'shapemask':
+    model_fn = shapemask_model.ShapeMaskModel(params)
   else:
     raise ValueError('Model %s is not supported.'% params.type)
 
